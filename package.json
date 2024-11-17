@@ -6,6 +6,7 @@
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
+    "electron-is-dev": "^3.0.1",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-scripts": "5.0.1",
@@ -15,7 +16,9 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "electron-start": "ELECTRON_START_URL=http://localhost:3000 electron .",
+    "electron-pack": "yarn build && electron-builder build -c.extraMetadata.main=build/Main.js"
   },
   "eslintConfig": {
     "extends": [
@@ -34,5 +37,14 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "main":"public/electron.js",
+  "homepage":".",
+  "devDependencies": {
+    "concurrently": "^9.1.0",
+    "cross-env": "^7.0.3",
+    "electron": "^33.2.0",
+    "electron-builder": "^25.1.8",
+    "wait-on": "^8.0.1"
   }
 }
