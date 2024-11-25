@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Form, Button, Container, Row, Col } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { login } from '../../utils/auth';
 
 const LoginPage = () => {
     const [email, setEmail] = useState('');
@@ -8,11 +9,13 @@ const LoginPage = () => {
     const [isSave, setIsSave] = useState(false);
 
     const handleSubmit = (e) => {
-        e.preventDefault();
         // Handle login logic here
-        console.log('Email:', email);
-        console.log('Password:', password);
-        console.log('isSave:', isSave);
+        //var ret = login(email, password);
+        //console.log('ret', ret);
+        if (isSave) {
+            localStorage.setItem('email', email);
+            //localStorage.setItem('password', password);
+        }
     };
 
     return (
@@ -21,7 +24,6 @@ const LoginPage = () => {
                 <Col md={6}>
                     <h2 className="text-center">Login</h2>
                     <Form onSubmit={handleSubmit}>
-
                         {/* 이메일 */}
                         <Form.Group controlId="FormLoginEmail">
                             <Form.Label className='m-1'>Email address</Form.Label>
@@ -51,14 +53,14 @@ const LoginPage = () => {
                             controlId="formBasicCheckbox"
                         >
                             <Form.Check type="checkbox" label="저장 하시겠습니까?"
-                            value={isSave}
-                            onChange={(e) => setIsSave(e.target.checked)}
-                             />
+                                value={isSave}
+                                onChange={(e) => setIsSave(e.target.checked)}
+                            />
                         </Form.Group>
-                        
+
                         {/* 로그인 버튼 */}
                         <Button className='mt-3'
-                            variant="primary" type="submit" block>
+                            variant="primary" type="submit">
                             Login
                         </Button>
                     </Form>
