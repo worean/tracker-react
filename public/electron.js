@@ -1,7 +1,6 @@
 const {app, BrowserWindow} = require('electron');
 const path = require('path');
 const url = require('url');
-require('crash-reporter').start();
 
 function createWindow() {
     
@@ -19,7 +18,7 @@ function createWindow() {
         slashes: true,
     });
 
-    win.openDevTools(); // 개발자 도구를 엽니다.
+    //win.openDevTools(); // 개발자 도구를 엽니다.
 
     // 초기 로드할 웹사이트의 주소를 지정합니다.
     win.loadURL(startUrl);

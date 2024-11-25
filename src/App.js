@@ -1,9 +1,11 @@
 import './App.css';
-import Homepage from './pages/homepage';
+import LoginPage from './pages/login/login';
+import MainPage from './pages/main/mainpage';
+import { isLogin } from './utils/auth';
 
 function App() {
   return (
-    <Homepage/>
+    isLogin() ? <MainPage /> : <LoginPage />
   );
 }
 
