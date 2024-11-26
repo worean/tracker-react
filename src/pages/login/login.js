@@ -4,18 +4,22 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { login } from '../../utils/auth';
 
 const LoginPage = () => {
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
+    const [email, setEmail] = useState('worean@naver.com');
+    const [password, setPassword] = useState('1234');
     const [isSave, setIsSave] = useState(false);
 
     const handleSubmit = (e) => {
-        // Handle login logic here
-        //var ret = login(email, password);
-        //console.log('ret', ret);
         if (isSave) {
             localStorage.setItem('email', email);
             //localStorage.setItem('password', password);
         }
+
+        // Handle login logic here
+        login(email, password).then((res) => {
+            console.log('res', res);
+        }).catch((err) => {
+            console.log('err', err);
+        });
     };
 
     return (
@@ -60,7 +64,7 @@ const LoginPage = () => {
 
                         {/* 로그인 버튼 */}
                         <Button className='mt-3'
-                            variant="primary" type="submit">
+                            variant="primary" onClick={handleSubmit}>
                             Login
                         </Button>
                     </Form>

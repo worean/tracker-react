@@ -1,30 +1,24 @@
-import axios from "axios";
-
-const API_URL = "http://localhost:4000/api/";
-
+import Axios from "./axios";
 
 export const register = (username, email, password) => {
-    return axios.post(API_URL + "signup", {
+    return Axios.post("signup", {
         name: username,
         email,
         password,
     });
 }
-
 // 로그인을 시도하는 함수.
 export const login = (email, password) => {
-    return axios
-        .post(API_URL + "login", {
-            email,
-            password,
+    return Axios
+        .post("user/login", {
+            email: email,
+            password : password,
         })
-        // 요청이 성공하면, 응답에서 받은 JWT를 반환합니다.
         .then((response) => {
             if (response.data.accessToken) {
                 // 로컬 저장소에 사용자 정보를 저장합니다.
                 localStorage.setItem("user", JSON.stringify(response.data));
             }
-
             return response.data;
         });
 }
