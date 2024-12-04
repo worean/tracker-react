@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import MenuButton from './MenuButton';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import './sidebar.css';
-import { faAngleDown, faAngleUp } from '@fortawesome/free-solid-svg-icons';
+import { faAngleUp } from '@fortawesome/free-solid-svg-icons';
 
 const MenuButtonGroup = ({ title, icon, children }) => {
     const [isExpanded, setIsExpanded] = useState(false);
@@ -16,9 +16,11 @@ const MenuButtonGroup = ({ title, icon, children }) => {
         <div className='flex flex-col'>
             <li>
                 <button className='menu-button' onClick={handleToggle}>
-                    <FontAwesomeIcon className='m-3' icon={icon} />
+                    <div className='flex flex-col aspect-square w-10 h-10 justify-center align-middle items-center'>
+                        <FontAwesomeIcon className='' icon={icon} />
+                    </div>
                     <text>{title}</text>
-                    <FontAwesomeIcon className={isExpanded ? 'm-3 menu-button rotate' : 'm-3 menu-button'} icon={faAngleUp} />
+                    <FontAwesomeIcon className={isExpanded ? 'flex overflow-hidden items-center justify-center m-3 rotate-180' : 'flex overflow-hidden items-center justify-center m-3'} icon={faAngleUp} />
                 </button>
             </li>
             <div className='flex flex-col overflow-hidden'>

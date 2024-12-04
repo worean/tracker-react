@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import './sidebar.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
+
 // 왼쪽 사이드바에 추가될 컴포넌트
 const MenuButton = ({ title, icon, to }) => {
 
@@ -15,8 +16,10 @@ const MenuButton = ({ title, icon, to }) => {
     return (
         <li>
             <button onClick={handleClick} className="menu-button">
-                <FontAwesomeIcon width={20} height={20} className='m-3' icon={icon} />
-                <text>  {title}</text>
+                <div className='flex flex-col aspect-square w-10 h-10 justify-center align-middle items-center'>
+                    <FontAwesomeIcon className='aspect-auto' icon={icon} />
+                </div>
+                <text>{title}</text>
             </button>
         </li>
     );

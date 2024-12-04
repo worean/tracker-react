@@ -56,6 +56,12 @@ const Sidebar = ({ children }) => {
             { title: "test2", icon: faDashboard },
             { title: "test3", icon: faComment }]}
         />
+        <MenuButtonGroup title="Test Group222" icon={faMagnet}
+          children={[
+            { title: "test1", icon: faVault },
+            { title: "test2", icon: faDashboard },
+            { title: "test3", icon: faComment }]}
+        />
       </div>
 
     </div>
