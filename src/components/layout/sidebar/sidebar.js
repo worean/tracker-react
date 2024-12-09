@@ -9,11 +9,11 @@ const Sidebar = ({ children }) => {
   const [isNarrow, setIsNarrow] = useState(false);
 
 
-  const toggleIsNarrow = () => {
-    const newValue = !isNarrow
-    localStorage.setItem('isNarrow', newValue ? 'true' : 'false')
-    setIsNarrow(newValue)
-  }
+  // const toggleIsNarrow = () => {
+  //   const newValue = !isNarrow
+  //   localStorage.setItem('isNarrow', newValue ? 'true' : 'false')
+  //   setIsNarrow(newValue)
+  // }
 
   // On first time load only
   useEffect(() => {
@@ -35,16 +35,12 @@ const Sidebar = ({ children }) => {
           width="118"
           height="46"
         >
-          <title>CoreUI Logo</title>
-          <use xlinkHref="/assets/brand/coreui.svg#full" />
         </svg>
         <svg
           className="sidebar-brand-narrow d-none"
           width="46"
           height="46"
         >
-          <title>CoreUI Logo</title>
-          <use xlinkHref="/assets/brand/coreui.svg#signet" />
         </svg>
       </div>
 

@@ -7,7 +7,6 @@ const MainPage = () => {
     return (
         <div >
             <Sidebar />
-            <Link to="/login">Login</Link>
         </div>
     );
 };

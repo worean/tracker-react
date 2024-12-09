@@ -14,7 +14,14 @@ export const login = async (email, password) => {
             email: email,
             password: password,
         });
-    return axiosResult
+
+    // 로그인에 성공하면 사용자 정보를 로컬 저장소에 저장합니다.
+    if (axiosResult.data.result) {
+        localStorage.setItem("user", JSON.stringify(axiosResult.data.result));
+        console.log("token is saved", axiosResult.data.result);
+    }
+
+    return axiosResult;
 }
 
 // 현재 로그인된 상태인지 확인하는 함수
@@ -23,9 +30,10 @@ export const isLogin = () => {
     const user = JSON.parse(localStorage.getItem("user"));
 
     if (user) {
-        console.log("user", user);
+        console.log("token", user);
         return true;
     }
+    console.log("not logined");
 
     return false;
 }

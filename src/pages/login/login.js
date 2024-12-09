@@ -1,13 +1,17 @@
 import React, { useState } from 'react';
 import { Form, Button } from 'react-bootstrap';
-import { login } from '../../utils/auth';
+import { isLogin, login } from '../../utils/auth';
 import BackGroundImage from '../../assets/images/background.png';
 import Logo from '../../assets/images/logo.png';
+
+import { useNavigate } from 'react-router-dom';
 const LoginPage = () => {
     const [email, setEmail] = useState('worean@naver.com');
     const [password, setPassword] = useState('1234');
     const [isSave, setIsSave] = useState(false);
     const [loading, setLoading] = useState(false);
+
+    const navigate = useNavigate();
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -17,16 +21,17 @@ const LoginPage = () => {
         }
         // UI를 로딩중 상태로 변경한다.
         setLoading(true);
+
         // 로그인을 동작한다.
         var ret = await login(email, password);
         console.log(ret);
-
         setLoading(false);
-    };
 
-    function delay(ms) {
-        return new Promise((resolve) => setTimeout(resolve, ms));
-    }
+        // 로그인 성공시 메인 페이지로 이동한다.
+        if(isLogin()) {
+            navigate(-1);
+        }
+    };
 
     return (
         <div className='flex flex-col justify-center align-middle 
@@ -92,7 +97,7 @@ const LoginPage = () => {
                 </div>
 
             </Form>
-        </div >
+        </div>
     );
 };
 
