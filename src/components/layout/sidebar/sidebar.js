@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import './sidebar.css';
 import { faComment, faDashboard, faHome, faMagnet, faVault } from '@fortawesome/free-solid-svg-icons';
-import MenuButton from './MenuButton';
 import classNames from 'classnames';
-import MenuButtonGroup from './MenuButtonGroup';
+import SidebarNavItem from './SidebarNavItem';
+import SidebarNavGroup from './SidebarNavGroup';
 // 왼쪽 사이드바에 추가될 컴포넌트
 const Sidebar = ({ children }) => {
   const [isNarrow, setIsNarrow] = useState(false);
@@ -45,18 +45,18 @@ const Sidebar = ({ children }) => {
       </div>
 
       <div className="flex flex-col">
-        <MenuButton title="Home" icon={faHome} to="/" />
-        <MenuButtonGroup title="Test Group" icon={faMagnet}
+        <SidebarNavItem title="Home" icon={faHome} to="/" />
+        <SidebarNavGroup title="Test Group" icon={faMagnet}
           children={[
-            { title: "test1", icon: faVault },
-            { title: "test2", icon: faDashboard },
-            { title: "test3", icon: faComment }]}
+            { title: "test1", icon: faVault, to: '/test' },
+            { title: "test2", icon: faDashboard, to: '/test' },
+            { title: "test3", icon: faComment, to: '/test' }]}
         />
-        <MenuButtonGroup title="Test Group222" icon={faMagnet}
+        <SidebarNavGroup title="Test Group222" icon={faMagnet}
           children={[
-            { title: "test1", icon: faVault },
-            { title: "test2", icon: faDashboard },
-            { title: "test3", icon: faComment }]}
+            { title: "test1", icon: faVault, to: '/test' },
+            { title: "test2", icon: faDashboard, to: '/test' },
+            { title: "test3", icon: faComment, to: '/test' }]}
         />
       </div>
 

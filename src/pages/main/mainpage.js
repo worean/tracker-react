@@ -1,5 +1,5 @@
 import React from 'react';
-import Sidebar from '../../components/layout/sidebar/sidebar';
+import Sidebar from '../../components/layout/sidebar/Sidebar';
 import { Link } from 'react-router-dom';
 
 const MainPage = () => {
