@@ -1,3 +1,5 @@
+
+// 절대 경로 사용을 위한 jsconfig.json 파일입니다.
 {
     "compilerOptions": {
         "baseUrl": "src"
